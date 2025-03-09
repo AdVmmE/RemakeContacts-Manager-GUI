@@ -10,25 +10,19 @@ class ContactApp:
         self.root.geometry("600x700")
         self.root.configure(bg="#f0f2f5")
 
-        # Initialize SQLite database
+        # -------------------------Initialize SQLite database
         self.conn = sqlite3.connect('contacts.db')
         self.create_table()
 
-        # Create main frame
+        # ------------------Create main frame
         self.main_frame = ttk.Frame(root, padding="20")
         self.main_frame.pack(fill="both", expand=True)
 
-        # Style configuration
+        # ---------------------Style configuration
         self.style = ttk.Style()
         self.style.configure("TLabel", background="#f0f2f5", font=("Helvetica", 11))
         self.style.configure("TButton", font=("Helvetica", 10))
         self.style.configure("Treeview.Heading", font=("Helvetica", 11, "bold"))
-        
-        # Configure custom style for Add button
-        self.style.configure("Add.TButton", background="#0000ff", 
-                           foreground="black", padding=6)
-        self.style.map("Add.TButton",
-                      background=[('active', '#d35400')])  # Darker shade when clicked
 
         self.create_widgets()
 
@@ -44,12 +38,12 @@ class ContactApp:
         self.conn.commit()
 
     def create_widgets(self):
-        # Title
+        #----------------------------------- Title
         title = ttk.Label(self.main_frame, text="Contact Manager", 
                          font=("Helvetica", 20, "bold"), foreground="#2c3e50")
         title.grid(row=0, column=0, columnspan=2, pady=(0, 20))
 
-        # Input fields
+        # --------------------------------Input fields
         fields = [
             ("Nom", "name_entry"),
             ("Prénom", "prenom_entry"),
@@ -64,11 +58,11 @@ class ContactApp:
             entry.grid(row=i+1, column=1, pady=5, padx=5)
             setattr(self, attr, entry)
 
-        # Buttons frame
+        #--------------------------------- Buttons frame
         btn_frame = ttk.Frame(self.main_frame)
         btn_frame.grid(row=5, column=0, columnspan=2, pady=20)
 
-        # Modern buttons with custom style for Add button
+        # Modern buttons
         self.add_btn = ttk.Button(btn_frame, text="Add Contact", 
                                 command=self.add_contact, style="Add.TButton")
         self.add_btn.grid(row=0, column=0, padx=5)
@@ -80,6 +74,10 @@ class ContactApp:
         self.delete_btn = ttk.Button(btn_frame, text="Delete Contact", 
                                    command=self.delete_contact)
         self.delete_btn.grid(row=0, column=2, padx=5)
+
+        # Configure accent button style
+        self.style.configure("Accent.TButton", background="#3498db", 
+                           foreground="white", padding=6)
 
         # Search/Delete entry
         ttk.Label(self.main_frame, text="Search Name to Delete:").grid(row=6, column=0, 
@@ -121,12 +119,12 @@ class ContactApp:
         view_window.geometry("700x500")
         view_window.configure(bg="#f0f2f5")
 
-        # Create Treeview
+        #--------------------------- Create Treeview
         tree = ttk.Treeview(view_window, columns=("ID", "Name", "Prénom", "Adresse", "Numéro", "Created"),
                            show="headings", height=20)
         tree.pack(padx=20, pady=20, fill="both", expand=True)
 
-        # Configure columns
+        # ----------------------------Configure columns
         tree.heading("ID", text="ID")
         tree.heading("Name", text="Name")
         tree.heading("Prénom", text="Prénom")
@@ -141,7 +139,7 @@ class ContactApp:
         tree.column("Numéro", width=100)
         tree.column("Created", width=150)
 
-        # Fetch and display contacts
+        # --------------------Fetch and display contacts
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM contacts")
         for row in cursor.fetchall():
