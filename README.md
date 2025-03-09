@@ -22,7 +22,7 @@ Modern Contact Manager is a sleek, user-friendly desktop application built with 
 
 Here are some views of the Modern Contact Manager:
 
-![Main Window](./asset/image1.jpg)
+![Main Window](./asset/iimage1.jpg)
 *The main interface showing input fields and action buttons.*
 
 ![Contacts View](./asset/image3.jpg)
