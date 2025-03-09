@@ -20,8 +20,13 @@ Modern Contact Manager is a sleek, user-friendly desktop application built with 
 
 ## Screenshots
 
-*(Add screenshots here showing the main window and contacts view window)*
+Here are some views of the Modern Contact Manager:
 
+![Main Window](./asset/iimage1.jpg)(./asset/image2.jpg)
+*The main interface showing input fields and action buttons.*
+
+![Contacts View](./asset/image3.jpg)
+*The contacts view displaying stored contacts in a table.*
 ## Requirements
 
 - Python 3.x
@@ -73,4 +78,3 @@ You can customize it further by:
 - Including actual screenshots
 - Adding a specific license file
 - Modifying the styling to match your preferences
-
