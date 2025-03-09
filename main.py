@@ -23,6 +23,12 @@ class ContactApp:
         self.style.configure("TLabel", background="#f0f2f5", font=("Helvetica", 11))
         self.style.configure("TButton", font=("Helvetica", 10))
         self.style.configure("Treeview.Heading", font=("Helvetica", 11, "bold"))
+        
+        # Configure custom style for Add button
+        self.style.configure("Add.TButton", background="#0000ff", 
+                           foreground="black", padding=6)
+        self.style.map("Add.TButton",
+                      background=[('active', '#d35400')])  # Darker shade when clicked
 
         self.create_widgets()
 
@@ -62,9 +68,9 @@ class ContactApp:
         btn_frame = ttk.Frame(self.main_frame)
         btn_frame.grid(row=5, column=0, columnspan=2, pady=20)
 
-        # Modern buttons
+        # Modern buttons with custom style for Add button
         self.add_btn = ttk.Button(btn_frame, text="Add Contact", 
-                                command=self.add_contact, style="Accent.TButton")
+                                command=self.add_contact, style="Add.TButton")
         self.add_btn.grid(row=0, column=0, padx=5)
 
         self.view_btn = ttk.Button(btn_frame, text="View Contacts", 
@@ -74,10 +80,6 @@ class ContactApp:
         self.delete_btn = ttk.Button(btn_frame, text="Delete Contact", 
                                    command=self.delete_contact)
         self.delete_btn.grid(row=0, column=2, padx=5)
-
-        # Configure accent button style
-        self.style.configure("Accent.TButton", background="#3498db", 
-                           foreground="white", padding=6)
 
         # Search/Delete entry
         ttk.Label(self.main_frame, text="Search Name to Delete:").grid(row=6, column=0, 
