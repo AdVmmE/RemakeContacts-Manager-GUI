@@ -37,7 +37,7 @@ Here are some views of the Modern Contact Manager:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/modern-contact-manager.git
+   git clone https://github.com/AdVmmE/modern-contact-manager.git
    ```
 2. Navigate to the project directory:
    ```bash
