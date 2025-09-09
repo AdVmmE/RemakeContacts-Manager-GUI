@@ -25,7 +25,7 @@ Here are some views of the Modern Contact Manager:
 ![Main Window](./asset/iimage1.jpg)
 *The main interface showing input fields and action buttons.*
 
-![Contacts View](./asset/image3.jpg)
+![Contacts View](./asset/image1.jpg)
 *The contacts view displaying stored contacts in a table.*
 ## Requirements
 
@@ -59,4 +59,5 @@ Here are some views of the Modern Contact Manager:
 
 - `contact_manager.py`: Main application code
 - `contacts.db`: SQLite database file (created automatically on first run)
+
 
